@@ -35,7 +35,7 @@ def notifyEmail(buildStatus, emailRecipients) {
         ]);
 
         emailext body: body,
-                to: emailRecipients.join(","),
+                to: emailRecipients,
                 subject: "${icon} [ ${env.JOB_NAME} ] [${env.BUILD_NUMBER}] - ${buildStatus} ",
                 mimeType: 'text/html'
 
