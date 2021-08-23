@@ -20,7 +20,7 @@ def notifyEmail(buildStatus, emailRecipients) {
         def statusSuccess = true
         def hasArtifacts = true
 
-        if(buildStatus != "SUCCESSFUL") {
+        if(buildStatus != "SUCCESS") {
             icon = "❌"
             statusSuccess = false
             hasArtifacts = false
