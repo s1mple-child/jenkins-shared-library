@@ -15,15 +15,10 @@ def emailTemplate(params) {
 def notifyEmail(buildStatus, emailRecipients) {
 
     try {
-
-        def icon = "✔️"
-
         def statusSuccess = true
         def hasArtifacts = true
 
         if(buildStatus != "SUCCESS") {
-            icon = "❌"
-
             statusSuccess = false
             hasArtifacts = false
         }
@@ -38,7 +33,7 @@ def notifyEmail(buildStatus, emailRecipients) {
 
         emailext body: body,
                 to: emailRecipients,
-                subject: "${icon} [ ${env.JOB_NAME} ] [${env.BUILD_NUMBER}] - ${buildStatus} ",
+                subject: "[ ${env.JOB_NAME} ] [${env.BUILD_NUMBER}] - ${buildStatus} ",
                 mimeType: 'text/html'
 
     } catch (e){
