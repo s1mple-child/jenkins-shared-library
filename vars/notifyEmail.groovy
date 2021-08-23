@@ -34,11 +34,10 @@ def notifyEmail(buildStatus, emailRecipients) {
                 "downloadUrl"   :   "www.downloadurl.com"
         ]);
 
-        mail (to: emailRecipients.join(","),
+        emailext body: body,
+                to: emailRecipients.join(","),
                 subject: "${icon} [ ${env.JOB_NAME} ] [${env.BUILD_NUMBER}] - ${buildStatus} ",
-                body: body,
                 mimeType: 'text/html'
-        );
 
     } catch (e){
         println "ERROR SENDING EMAIL ${e}"
