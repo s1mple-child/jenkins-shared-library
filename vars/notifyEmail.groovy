@@ -16,12 +16,14 @@ def notifyEmail(buildStatus, emailRecipients) {
 
     try {
 
-        def icon = "✅"
+        def icon = "✔️"
+
         def statusSuccess = true
         def hasArtifacts = true
 
         if(buildStatus != "SUCCESS") {
             icon = "❌"
+
             statusSuccess = false
             hasArtifacts = false
         }
